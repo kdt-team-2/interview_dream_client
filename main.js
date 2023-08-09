@@ -109,7 +109,7 @@ chat_input.addEventListener('submit', event => {
 async function server(context) {
     loading.classList.add('active')
     startRotation()
-    await fetch('https://choyunjae-chatbot.koyeb.app/test', {
+    await fetch('http://127.0.0.1:8000/test', {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -142,7 +142,7 @@ async function server(context) {
 
 async function server_chat(context) {
     chat_text.setAttribute("readonly", "readonly");
-    await fetch('https://choyunjae-chatbot.koyeb.app/chat', {
+    await fetch('http://127.0.0.1:8000/chat', {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
