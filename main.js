@@ -142,7 +142,7 @@ async function server(context) {
 
 async function server_chat(context) {
     chat_text.setAttribute("readonly", "readonly");
-    await fetch('https://choyunjae-chatbot.koyeb.app/chat', {
+    await fetch('http://127.0.0.1:8000/chat', {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -160,8 +160,17 @@ async function server_chat(context) {
         .then(datas => {
             datas.forEach(data => {
                 //  대답이 면접관 텍스트로 들어가는 과정
-                chat_list.innerHTML += `<li class="interviewer_li"><span class="icon"></span><p class="interviewer">${data}</p></li>`;
-                chat_list.lastElementChild.scrollIntoView({ behavior: "smooth" })
+                if (data == 'Nan') {
+                    ggory = 0
+                    chat_text.value = ''
+                    count_idx++
+                    chat_list.innerHTML += `<li class="interviewer_li"><span class="icon"></span><p class="interviewer">${result_box_list.children[count_idx].cloneNode(true).textContent}</p></li>`;
+                    chat_list.lastElementChild.scrollIntoView({ behavior: "smooth" })
+                } else {
+                    chat_list.innerHTML += `<li class="interviewer_li"><span class="icon"></span><p class="interviewer">${data}</p></li>`;
+                    chat_list.lastElementChild.scrollIntoView({ behavior: "smooth" })
+                }
+
             });
         })
         .then(() => {
