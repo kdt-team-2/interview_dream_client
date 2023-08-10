@@ -112,11 +112,7 @@ chat_input.addEventListener('submit', event => {
 async function server(context) {
     loading.classList.add('active')
     startRotation()
-<<<<<<< HEAD
-    await fetch('http://127.0.0.1:8000/test', {
-=======
     await fetch(`${path}test`, {
->>>>>>> adcaea2a40b93d0d8c8224e043adb69a67dbd24b
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -149,13 +145,9 @@ async function server(context) {
 
 async function server_chat(context) {
     chat_text.setAttribute("readonly", "readonly");
-<<<<<<< HEAD
-    await fetch('http://127.0.0.1:8000/chat', {
-=======
     chat_list.innerHTML += chat_loading();
     chat_list.lastElementChild.scrollIntoView({ behavior: "smooth" })
     await fetch(`${path}chat`, {
->>>>>>> adcaea2a40b93d0d8c8224e043adb69a67dbd24b
         method: "POST",
         headers: {
             "Content-Type": "application/json"
