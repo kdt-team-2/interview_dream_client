@@ -115,11 +115,11 @@ async function server(context) {
     await fetch(`${path}test`, {
         method: "POST",
         headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
         },
         body: JSON.stringify({
             "context": context
-        })
+        }),
     })
         .then(response => {
             if (!response.ok) {
@@ -154,7 +154,7 @@ async function server_chat(context) {
         },
         body: JSON.stringify({
             "context": context
-        })
+        }),
     })
         .then(response => {
             if (!response.ok) {
